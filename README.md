@@ -12,7 +12,6 @@ This project contains the specific files required to use the [Hibernate ORM](htt
           <version>1.9.4-SNAPSHOT</version>
         </dependency>
 
-
 Second, update your hibernate.properties file for your project to the following:
 
     hibernate.dialect org.hibernate.dialect.FoundationDBSQLDialect
@@ -21,7 +20,6 @@ Second, update your hibernate.properties file for your project to the following:
     hibernate.connection.username test
     hibernate.connection.password test
 
-    #hibernate.ejb.naming_strategy org.hibernate.cfg.EJB3NamingStrategy
     hibernate.ejb.naming_strategy org.hibernate.cfg.DialectSensitiveNamingStrategy
 
 We strongly recommend you use the included `DialectSenstitiveNamingStrategy` to avoid issues regarding conflicts between your object names and the SQL keywords used by FoundationDB SQL Layer. If you have already implemented your own naming strategy don't replace it with this one, but be aware you may need to extend it for the same reasons. 
