@@ -16,11 +16,15 @@
     </organization>
     <licenses>
         <license>
-            <name>GNU Affero General Public License v3</name>
-            <url>https://www.gnu.org/licenses/agpl</url>
+            <name>GNU Lesser General Public License</name>
+            <url>https://www.gnu.org/licenses/lgpl</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
+   <scm>
+        <url>git@github.com:FoundationDB/sql-layer-adapter-hibernate.git</url>
+        <connection>scm:git@github.com:FoundationDB/sql-layer-adapter-hibernate.git</connection>
+    </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -44,11 +48,13 @@
             <groupId>com.foundationdb</groupId>
             <artifactId>fdb-sql-layer-jdbc</artifactId>
             <version>1.9-4-jdbc41-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
-		    <version>4.3.1.Final</version>
+		    <version>4.1.12.Final</version>
+		    <scope>provided</scope>
 		</dependency>    
     </dependencies>    
 </project>
