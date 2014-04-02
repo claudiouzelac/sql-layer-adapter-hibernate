@@ -29,20 +29,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-    <distributionManagement>
-        <repository>
-            <id>AlibanLocal</id>
-            <name>Akiban Local release repository</name>
-            <url>http://sneezy:8095/nexus/content/repostories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>AkibanLocal</id>
-            <name>Akiban Local Snapshot Repository</name>
-            <url>http://sneezy:8095/nexus/content/repositories/snapshots/</url>
-       </snapshotRepository>
-    </distributionManagement>
-
-
     <dependencies>
         <dependency>
             <groupId>com.foundationdb</groupId>
@@ -50,11 +36,24 @@
             <version>1.9-4-jdbc41-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>4.2.11.Final</version>
-		    <scope>provided</scope>
-		</dependency>    
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.2.11.Final</version>
+            <scope>provided</scope>
+        </dependency>    
     </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <version>1.1</version>
+              <configuration>
+                <mainClass>com.foundationdb.sql.example.Tutorial</mainClass>
+              </configuration>
+            </plugin> 
+        </plugins>
+    </build>    
 </project>
