@@ -3,11 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.foundationdb</groupId>
-    <artifactId>fdb-sql-hibernate</artifactId>
+    <artifactId>fdb-sql-hibernate-tutorial</artifactId>
     <version>1.9.4-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
-    <name>FoundationDB SQL Layer Hibernate integration</name>
+    <name>FoundationDB SQL Layer Hibernate integration tutorial</name>
     <inceptionYear>2014</inceptionYear>
     <url>http://www.foundationdb.com/</url>
     <organization>
@@ -29,32 +28,38 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-    <distributionManagement>
-        <repository>
-            <id>AlibanLocal</id>
-            <name>Akiban Local release repository</name>
-            <url>http://sneezy:8095/nexus/content/repostories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>AkibanLocal</id>
-            <name>Akiban Local Snapshot Repository</name>
-            <url>http://sneezy:8095/nexus/content/repositories/snapshots/</url>
-       </snapshotRepository>
-    </distributionManagement>
-
-
     <dependencies>
         <dependency>
             <groupId>com.foundationdb</groupId>
             <artifactId>fdb-sql-layer-jdbc</artifactId>
             <version>1.9-4-jdbc41-SNAPSHOT</version>
-            <scope>provided</scope>
         </dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>4.2.11.Final</version>
-		    <scope>provided</scope>
-		</dependency>    
+        <dependency>
+            <groupId>com.foundationdb</groupId>
+            <artifactId>fdb-sql-hibernate</artifactId>
+            <version>1.9.4-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.2.11.Final</version>
+        </dependency>    
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.6</version>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <version>1.1</version>
+              <configuration>
+                <mainClass>com.foundationdb.sql.example.Tutorial</mainClass>
+              </configuration>
+            </plugin> 
+        </plugins>
+    </build>    
 </project>
