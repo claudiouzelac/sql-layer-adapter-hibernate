@@ -37,7 +37,7 @@
 
     <organization>
         <name>FoundationDB, LLC</name>
-        <url>http:s//foundationdb.com</url>
+        <url>https://foundationdb.com</url>
     </organization>
 
     <properties>
@@ -70,11 +70,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>4.2.11.Final</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
         </dependency>
     </dependencies>
 
