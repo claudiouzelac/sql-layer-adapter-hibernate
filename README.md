@@ -1,5 +1,4 @@
-sql-layer-adapter-hibernate
-===========================
+## FoundationDB SQL Layer Hibernate Dialect
 
 Hibernate ORM specific files for the FoundationDB SQL Layer 
 
@@ -8,7 +7,7 @@ This project contains the specific files required to use the [Hibernate ORM](htt
 
         <dependency>
           <groupId>com.foundationdb</groupId>
-          <artifactId>fdb-sql-hibernate</groupId>
+          <artifactId>fdb-sql-layer-hibernate</groupId>
           <version>1.9.4-SNAPSHOT</version>
         </dependency>
 
