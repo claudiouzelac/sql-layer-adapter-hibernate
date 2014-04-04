@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Required for deploying to Sonatype -->
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <groupId>com.foundationdb</groupId>
-    <artifactId>fdb-sql-hibernate</artifactId>
-    <version>1.9.4-SNAPSHOT</version>
+    <artifactId>fdb-sql-layer-hibernate</artifactId>
+    <version>1.9.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>FoundationDB SQL Layer Hibernate integration</name>
+    <name>FoundationDB SQL Layer Hibernate Dialect</name>
+    <description>Dialect providing Hibernate integration with the FoundationDB SQL Layer.</description>
+    <url>https://github.com/FoundationDB/sql-layer-adapter-hibernate</url>
     <inceptionYear>2014</inceptionYear>
-    <url>http://www.foundationdb.com/</url>
-    <organization>
-        <name>FoundationDB, LLC</name>
-        <url>http://www.foundationdb.com/</url>
-    </organization>
+
     <licenses>
         <license>
-            <name>GNU Lesser General Public License</name>
+            <name>GNU Lesser General Public License v3</name>
             <url>https://www.gnu.org/licenses/lgpl</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
-   <scm>
+
+    <scm>
         <url>git@github.com:FoundationDB/sql-layer-adapter-hibernate.git</url>
         <connection>scm:git@github.com:FoundationDB/sql-layer-adapter-hibernate.git</connection>
     </scm>
+
+    <organization>
+        <name>FoundationDB, LLC</name>
+        <url>https://foundationdb.com</url>
+    </organization>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
     <distributionManagement>
         <repository>
             <id>AlibanLocal</id>
@@ -42,24 +58,38 @@
        </snapshotRepository>
     </distributionManagement>
 
-
     <dependencies>
         <dependency>
             <groupId>com.foundationdb</groupId>
             <artifactId>fdb-sql-layer-jdbc</artifactId>
-            <version>1.9-4-jdbc41-SNAPSHOT</version>
+            <version>1.9-5-jdbc41-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>4.2.11.Final</version>
-		    <scope>provided</scope>
-		</dependency>    
         <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.2.11.Final</version>
+            <scope>provided</scope>
         </dependency>
-    </dependencies>    
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Build source jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
