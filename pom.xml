@@ -14,7 +14,7 @@
 
     <groupId>com.foundationdb</groupId>
     <artifactId>fdb-sql-layer-hibernate</artifactId>
-    <version>1.9.4-SNAPSHOT</version>
+    <version>1.9.4</version>
     <packaging>jar</packaging>
 
     <name>FoundationDB SQL Layer Hibernate Dialect</name>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>com.foundationdb</groupId>
             <artifactId>fdb-sql-layer-jdbc</artifactId>
-            <version>1.9-4-jdbc41-SNAPSHOT</version>
+            <version>1.9-4-jdbc41</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
