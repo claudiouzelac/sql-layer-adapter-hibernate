@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.foundationdb</groupId>
+    <artifactId>fdb-sql-layer-hibernate-tutorial</artifactId>
+    <version>1.9.4-SNAPSHOT</version>
+
+    <name>FoundationDB SQL Layer Hibernate integration tutorial</name>
+    <inceptionYear>2014</inceptionYear>
+    <url>http://www.foundationdb.com/</url>
+    <organization>
+        <name>FoundationDB, LLC</name>
+        <url>http://www.foundationdb.com/</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>https://www.gnu.org/licenses/lgpl</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+   <scm>
+        <url>git@github.com:FoundationDB/sql-layer-adapter-hibernate.git</url>
+        <connection>scm:git@github.com:FoundationDB/sql-layer-adapter-hibernate.git</connection>
+    </scm>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.foundationdb</groupId>
+            <artifactId>fdb-sql-layer-jdbc</artifactId>
+            <version>1.9-5-jdbc41-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.foundationdb</groupId>
+            <artifactId>fdb-sql-layer-hibernate</artifactId>
+            <version>1.9.5-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.2.11.Final</version>
+        </dependency>    
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.6</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <version>1.1</version>
+              <configuration>
+                <mainClass>com.foundationdb.sql.example.Tutorial</mainClass>
+              </configuration>
+            </plugin> 
+        </plugins>
+    </build>    
+</project>

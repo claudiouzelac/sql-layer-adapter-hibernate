@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -37,6 +38,7 @@ public class Customer {
     @Id
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
+    @Column(name="customer_id")
     public long getId() {
         return id;
     }
@@ -78,8 +80,8 @@ public class Customer {
         this.birthday = birthday;
     }
     
-    @javax.persistence.OneToMany
-    @JoinColumn(nullable=false)
+    @OneToMany(cascade={CascadeType.ALL})
+    @JoinColumn(name="customer_id")
     public Set<Order> getOrders() {
         return orders;
     }
@@ -91,9 +93,8 @@ public class Customer {
         this.orders.add(order);
     }
 
-    @OneToMany(fetch = FetchType.LAZY,
-    cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name="customer_id", nullable=false)
+    @OneToMany(cascade={CascadeType.ALL})
+    @JoinColumn(name="customer_id")
     public Set<Address> getAddresses() {
         return addresses;
     }
@@ -103,7 +104,6 @@ public class Customer {
     public void addAddress(Address address) {
         this.addresses.add(address);
     }
-    
     private long id;
     private long rand_id;
     private String name;

@@ -1,6 +1,7 @@
 package com.foundationdb.sql.example;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -23,14 +24,23 @@ public class Tutorial {
     public void firstCustomer() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Customer customer = new Customer (1, "Thomas", "New Customer", new Date() );
-        Order firstOrder = new Order();
-        firstOrder.setOrder_date(new Date());
-        firstOrder.setOrder_info("Too many items");
-        customer.addOrder(firstOrder);
-        firstOrder.setCustomer(customer);
         
-        session.persist(firstOrder);
+        Customer customer = new Customer (1, "Thomas", "New Customer", new Date() );
+
+        session.save(customer);
+        
+        Order firstOrder = new Order();
+        firstOrder.setOrderDate(new Date());
+        firstOrder.setOrderInfo("Too many items");
+
+        customer.addOrder(firstOrder);
+        
+        Address primary = new Address();
+        primary.setCity("Boston");
+        primary.setState("MA");
+        primary.setAddressInfo("123 Main Street");
+
+        customer.addAddress(primary);
         session.persist( customer );
         session.flush();
         session.getTransaction().commit();
@@ -44,6 +54,13 @@ public class Tutorial {
         List result = session.createQuery( "from Customer" ).list();
         for ( Customer customer : (List<Customer>) result ) {
             System.out.println ("Customer (" + customer.getId() + ", " + customer.getRand_id() + ") : " + customer.getName());
+            for (Order order : customer.getOrders()) {
+                System.out.println("    Order (" + order.getId()+ ") : " + order.getOrderInfo());
+            }
+            
+            for (Address address : customer.getAddresses()) {
+                System.out.println("    Address (" + address.getId() + ") : " + address.getCity());
+            }
             
         }
         session.getTransaction().commit();
