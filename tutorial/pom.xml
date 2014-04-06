@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.foundationdb</groupId>
-    <artifactId>fdb-sql-hibernate-tutorial</artifactId>
+    <artifactId>fdb-sql-layer-hibernate-tutorial</artifactId>
     <version>1.9.4-SNAPSHOT</version>
 
     <name>FoundationDB SQL Layer Hibernate integration tutorial</name>
@@ -36,7 +36,7 @@
         </dependency>
         <dependency>
             <groupId>com.foundationdb</groupId>
-            <artifactId>fdb-sql-hibernate</artifactId>
+            <artifactId>fdb-sql-layer-hibernate</artifactId>
             <version>1.9.5-SNAPSHOT</version>
         </dependency>
         <dependency>
